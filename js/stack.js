@@ -4,8 +4,7 @@
 
 function isPalindrome(str) {
   const palindrome = new Stack();
-  for (const s of str) {
-
-  }
-  return palindrome;
+  const strArray = Array.from(str.toLowerCase()).filter(item => item !== ' ');
+  // return strArray.join('') === strArray.reverse().join(''); // и не надо стека :DD
+  
 }
