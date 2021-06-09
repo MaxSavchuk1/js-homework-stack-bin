@@ -1,28 +1,19 @@
 "use strict";
 
-function binarySearch(arr, value) {
-  let start = 0;
-  let end = arr.length - 1;
-  do {
-    let middle = Math.ceil((start + end) / 2);
-    if (value === arr[middle]) {
-      return middle;
-    }
-    if (value < arr[middle]) {
-      end = middle - 1;
-    }
-    if (value > arr[middle]) {
-      start = middle + 1;
-    }
-  } while (start <= end);
-  return -1;
-}
+const numberInMind = 86; // задуманное число
 
-function guessNumber (number) {
+function guessNumber() {
   let start = 1;
   let end = 100;
+  
   do {
-    let middle = confirm(`Ваше число меньше или равно ${Math.ceil((start + end) / 2)} ?`)
-    if (number === middle) { return }
-  }
+    let middle = Math.floor((start + end) / 2);
+    let isCorrect = confirm(`Ваше число меньше или равно ${middle} ?`)
+    isCorrect ? end = middle : start = middle;
+    if (middle === numberInMind) {
+      return middle;
+    }
+  } while (start !== numberInMind || end !== numberInMind);
+  return -1; // почему -1?
 }
+// когда нажимать неверно, хотя оно верно, то бесконечный цикл. Надо доделать
