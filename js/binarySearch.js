@@ -1,9 +1,9 @@
 "use strict";
 
-const numberInMind = 86; // задуманное число
+const numberInMind = 0; // задуманное число
 
 function guessNumber() {
-  let start = 1;
+  let start = 0;
   let end = 100;
   
   do {
