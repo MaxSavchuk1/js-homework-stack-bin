@@ -1,37 +1,21 @@
-"use strict";
+'use strict';
+import guessNumber from './binarySearch';
+import Stack from './stack';
 
-class Node {
-  constructor(data, next) {
-    this._data = data;
-    this._next = next;
-  }
-}
-
-class Stack {
-  constructor(maxSize = 99) {
-    this._maxSize = maxSize;
-    this._size = 0;
-    this._top = null;
-  }
-  push(value) {
-    if (this._size === this._maxSize) {
-      throw new RangeError('Stack overflow');
-    }
-    this._top = new Node(value, this._top);
-    this._size++;
-  }
-  pop() {
-    if (!this.isEmpty) {
-      const value = this._top._data;
-      this._top = this._top._next;
-      this._size--;
-      return value;
+function isPalindrome (str) {
+  const palindrome = new Stack();
+  const strArray = Array.from(str.toLowerCase()).filter(item => item !== ' ');
+  for (let i = 0; i < strArray.length - i; i++) {
+    palindrome.push(strArray[i]);
+    if (strArray[i] === strArray[strArray.length - 1 - i]) {
+      palindrome.pop();
     }
   }
-  get peek() {
-    return this._top?._data;
-  }
-  get isEmpty() {
-    return this._size === 0;
-  }
+  return palindrome.isEmpty;
 }
+console.log('Палиндром ли слово "tenet"? >>', isPalindrome('tenet'));
+console.log('isPalindrome("clock") :>> ', isPalindrome('clock'));
+console.log(
+  'isPalindrome("Аргентина манит негра") :>> ',
+  isPalindrome('Аргентина манит негра')
+);
