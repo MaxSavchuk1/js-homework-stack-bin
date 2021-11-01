@@ -1,6 +1,5 @@
 'use strict';
-import guessNumber from './binarySearch';
-import Stack from './stack';
+import Stack from './stack.js';
 
 function isPalindrome (str) {
   const palindrome = new Stack();

@@ -7,7 +7,7 @@ class Node {
   }
 }
 
-export default class Stack {
+class Stack {
   constructor (maxSize = 99) {
     this._maxSize = maxSize;
     this._size = 0;
@@ -35,3 +35,5 @@ export default class Stack {
     return this._size === 0;
   }
 }
+
+export default Stack;
